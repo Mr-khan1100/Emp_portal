@@ -1,0 +1,73 @@
+body{
+    background: linear-gradient(to right, rgb(27, 52, 245),rgb(44, 230, 221));
+    position: relative;
+    
+}
+h1{
+    position: relative;
+    margin-left: 40%;
+}
+
+form{
+    position: relative;
+    margin-left: 30%;
+}
+
+button{
+    border-style:inset;
+    border: 1px solid #ffff;
+    color: rgb(246, 246, 250);
+    background-color: blue;
+    padding: 15px 15px;
+    border-radius: 5px;
+}
+.delete_btn{
+    background-color: red;
+}
+
+.delete_btn:hover{
+    background-color: rgb(107, 32, 32);
+}
+button:hover{
+    background-color: rgb(87, 87, 231);
+    cursor: pointer;
+}
+div{
+    padding-bottom: 20px;
+}
+label{
+    font-size: 18px;
+    color: #ffff;
+    font-weight: 600;
+    padding-right: 20px;
+}
+
+input{
+    padding: 10px 0px;
+    
+    display: inline-block;
+    border: 1px solid #ffff;
+    border-radius: 5px;
+    text-indent: 10px;
+    font-size: 15px;
+    
+}
+select{
+    text-indent: 0px;
+    border-style: none;
+    font-size: 20px;
+    border-radius: 5px;
+    
+}
+table{
+    margin-left: 25%;
+    margin-top: 1%;
+    
+}
+th{
+    padding: 20px 30px;
+}
+td{
+    color: rgb(247, 244, 244);
+    padding:  0 0 0 28px;
+}
