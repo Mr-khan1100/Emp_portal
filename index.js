@@ -4,7 +4,9 @@ var name = document.getElementById('EmpName').value;
 var age = document.getElementById('EmpAge').value;
 var gender = document.getElementById('Emp_gender').value;
 
+
 var formData;
+
 
 var selectedRow;
 
@@ -33,12 +35,13 @@ function insertNewRecord(formData){
     <td>${formData.Emp_gender}</td>
     <td>
     <button class="editButton" onclick='onEdit(${EmployeeIDs.length - 1})'>Edit</button>
-    <button class="delete_btn">Delete</button>
+    <button class="delete_btn" onclick = 'onDelete(${EmployeeIDs.length - 1})'>Delete</button>
     </td>`;
     tbody.appendChild(newRow);
     }else{
         console.log('fds')
     }
+
 };
 
 
@@ -64,10 +67,8 @@ function validateForm(){
     document.getElementById('EmpName').value = '';
     document.getElementById('EmpAge').value = '';
     document.getElementById('Emp_gender').value= '';
-
-
-    var isValid = true;
     
+
     var formData = {
         Emp_id : ID,
         EmpName : name,
@@ -75,6 +76,7 @@ function validateForm(){
         Emp_gender : gender
     };
 
+    var isValid = true;
 
     if(formData.Emp_id.trim() === ""){
         idError.textContent = "Employee ID is required"
@@ -122,7 +124,7 @@ restrictToAlphabets(editEmpName);
 
 // only eligable Age group
 function ageValidate(inputElement) {
-    inputElement.addEventListener('input', function(event) {
+    inputElement.addEventListener('change', function(event) {
     const age = parseInt(event.target.value);
     
     if (isNaN(age) || age < 18 ) {
@@ -141,19 +143,28 @@ function ageValidate(inputElement) {
     const EmpAge = document.getElementById('EmpAge');
     ageValidate(EmpAge);
     
-    const editEmpAge = document.getElementById('editEmpAge');
-    ageValidate(editEmpAge);
+    
 
-
-    function onEdit(index) {
-        const employee = EmployeeIDs[index];
-        document.getElementById('editEmpId').value = employee.Emp_id;
-        document.getElementById('editEmpName').value = employee.EmpName;
-        document.getElementById('editEmpAge').value = employee.EmpAge;
-        document.getElementById('editEmpGender').value = employee.Emp_gender;
-        selectedRow = index;
+    function onEdit(rowIndex) {
+        selectedRow = rowIndex;
+        var editEmpId = document.getElementById('editEmpId');
+        var editEmpName = document.getElementById('editEmpName');
+        var editEmpAge = document.getElementById('editEmpAge');
+        var editEmpGender = document.getElementById('editEmpGender');
+      
+        // Populate the edit popup with the values from the selected row
+        editEmpId.value = EmployeeIDs[rowIndex].Emp_id;
+        editEmpName.value = EmployeeIDs[rowIndex].EmpName;
+        editEmpAge.value = EmployeeIDs[rowIndex].EmpAge;
+        editEmpGender.value = EmployeeIDs[rowIndex].Emp_gender;
+      
+        // Attach the age validation event listener to the editEmpAge input
+        ageValidate(editEmpAge);
+      
+        // Display the edit popup
         document.getElementById('editPopup').style.display = 'block';
-    }
+      }
+      
 
     function saveChanges() {
         
@@ -161,16 +172,25 @@ function ageValidate(inputElement) {
         var editedEmpName = document.getElementById('editEmpName').value;
         var editedEmpAge = document.getElementById('editEmpAge').value;
         var editedEmpGender = document.getElementById('editEmpGender').value;
-      
+
+    
         // Update the EmployeeIDs array with the edited values
         EmployeeIDs[selectedRow].Emp_id = editedEmpId;
         EmployeeIDs[selectedRow].EmpName = editedEmpName;
         EmployeeIDs[selectedRow].EmpAge = editedEmpAge;
         EmployeeIDs[selectedRow].Emp_gender = editedEmpGender;
+        // EmpIdError.textContent = '';
+
+        var isDuplicate = EmployeeIDs.some((emp, index) => index !== selectedRow && emp.Emp_id === editedEmpId);
+        if (isDuplicate) {
+            EmpIdError.textContent = 'Employee ID already exists.';
+            return;
+          }
+
       
         // Update the table row with the edited values
         var table = document.getElementById('emp_list');
-        var row = table.rows[selectedRow + 2];
+        var row = table.rows[selectedRow + 1];
         row.cells[0].innerHTML = editedEmpId;
         row.cells[1].innerHTML = editedEmpName;
         row.cells[2].innerHTML = editedEmpAge;
@@ -181,7 +201,36 @@ function ageValidate(inputElement) {
       }
       
 
-
 function onCancel(){
     document.getElementById('editPopup').style.display = 'none';
+
 }
+
+function onDelete(rowIndex) {
+    var empId = EmployeeIDs[rowIndex].Emp_id;
+    // EmployeeIDs.splice(rowIndex, 1); // Remove the element from the array
+  
+    // Delete the corresponding table row
+    var table = document.getElementById('emp_list');
+    table.deleteRow(rowIndex + 1); // +1 to account for the table header row
+  
+    console.log('Deleted Employee ID:', empId);
+  }
+
+
+// var i;
+
+// var delBtn = document.querySelectorAll('#delete_employee');
+
+// for (i = 0; i < delBtn.length + 1; i++) {
+
+// delBtn[i].onclick = function () {
+
+//     var tr = this.parentElement.parentElement;
+
+//     tr.remove();
+
+// }
+
+// }
+

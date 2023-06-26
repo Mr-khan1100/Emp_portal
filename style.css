@@ -1,16 +1,19 @@
 body{
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-around;
     background: linear-gradient(to right, rgb(27, 52, 245),rgb(44, 230, 221));
     position: relative;
     
 }
 h1{
     position: relative;
-    margin-left: 40%;
+    
+    color: white;
 }
 
 form{
     position: relative;
-    margin-left: 30%;
 }
 
 button{
@@ -22,11 +25,11 @@ button{
     border-radius: 5px;
 }
 .delete_btn{
-    background-color: red;
+    background-color: blue(0, 4, 255);
 }
 
 .delete_btn:hover{
-    background-color: rgb(107, 32, 32);
+    background-color: rgb(87, 87, 231);
 }
 button:hover{
     background-color: rgb(87, 87, 231);
@@ -55,12 +58,12 @@ input{
 select{
     text-indent: 0px;
     border: 2px solid #050505;
-    font-size: 20px;
+    font-size: 16px;
     border-radius: 5px;
     
 }
 table{
-    margin-left: 25%;
+    margin-right: 20px;
     margin-top: 1%;
     
 }
@@ -70,12 +73,14 @@ th{
 td{
     color: rgb(247, 244, 244);
     padding:  0 0 0 28px;
+    display: table-cell;
+    vertical-align: middle ;
 }
 
 .popup{
     display: none;
     position: fixed;
-    top: 50%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%,-50%);
     padding: 20px;
