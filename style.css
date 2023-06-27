@@ -2,7 +2,7 @@ body{
     margin-left: 20px;
     display: flex;
     justify-content: space-around;
-    background: linear-gradient(to right, rgb(27, 52, 245),rgb(44, 230, 221));
+    background: linear-gradient(to right, rgb(2, 12, 94),rgb(31, 177, 169));
     position: relative;
     
 }
