@@ -24,19 +24,25 @@ function VerifyId(formData){
 
 function insertNewRecord(formData){
     if(VerifyId(formData)){
-    EmployeeIDs.push(formData);
-    console.log(EmployeeIDs);
-    var table = document.getElementById('emp_list').getElementsByTagName('tbody')[0];
-    var newRow = table.insertRow(table.length);
-    newRow.innerHTML = `<td>${formData.Emp_id}</td>
-    <td>${formData.EmpName}</td>
-    <td>${formData.EmpAge}</td>
-    <td>${formData.Emp_gender}</td>
-    <td>
-    <button class="editButton" onclick='onEdit(${EmployeeIDs.length - 1})'>Edit</button>
-    <button class="delete_btn" onclick = 'onDelete(${EmployeeIDs.length - 1})'>Delete</button>
-    </td>`;
-    tbody.appendChild(newRow);
+        document.getElementById('Emp_id').value = '';
+        document.getElementById('EmpName').value = '';
+        document.getElementById('EmpAge').value = '';
+        document.getElementById('Emp_gender').value= '';
+
+    
+        EmployeeIDs.push(formData);
+        console.log(EmployeeIDs);
+        var table = document.getElementById('emp_list').getElementsByTagName('tbody')[0];
+        var newRow = table.insertRow(table.length);
+        newRow.innerHTML = `<td>${formData.Emp_id}</td>
+        <td>${formData.EmpName}</td>
+        <td>${formData.EmpAge}</td>
+        <td>${formData.Emp_gender}</td>
+        <td>
+        <button class="editButton" onclick='onEdit(${EmployeeIDs.length - 1})'>Edit</button>
+        <button class="delete_btn" onclick = 'onDelete(${EmployeeIDs.length - 1})'>Delete</button>
+        </td>`;
+        tbody.appendChild(newRow);
     }else{
         console.log('fds')
     }
@@ -58,14 +64,7 @@ function validateForm(){
     var ageError = document.getElementById('ageError');
     var selectError = document.getElementById('selectError');
 
-    idError.textContent  = '';
-    nameError.textContent = '';
-    ageError.textContent = '';
-    selectError.textContent = '';   
-    document.getElementById('Emp_id').value = '';
-    document.getElementById('EmpName').value = '';
-    document.getElementById('EmpAge').value = '';
-    document.getElementById('Emp_gender').value= '';
+
     
 
     var formData = {
@@ -78,26 +77,32 @@ function validateForm(){
     var isValid = true;
 
     if(formData.Emp_id.trim() === ""){
-        idError.textContent = "Employee ID is required"
+        idError.innerHTML = "Employee ID is required"
         isValid = false;
     }else if(EmployeeIDs.some((emp)=>emp.Emp_id === formData.Emp_id)){
-        idError.textContent = 'Id already exist'
+        idError.innerHTML = 'Id already exist'
         isValid =false;
     }else{
-        idError.textContent = ""
+        idError.innerHTML = ""
     }
     
     if(formData.EmpName.trim() === ""){
-        nameError.textContent = 'Name is required'
+        nameError.innerHTML = 'Name is required'
         isValid = false;
+    }else{
+        nameError.innerHTML = '';
     }
     if(formData.EmpAge.trim()===""){
-        ageError.textContent  = 'This field is Required'
+        ageError.innerHTML  = 'This field is Required'
         isValid = false;
+    }else{
+        ageError.innerHTML = "";
     }
     if(formData.Emp_gender === ""){
-        selectError.textContent = "select field"
+        selectError.textContent= "select field"
         isValid = false;
+    }else{
+        selectError.innerHTML = "";
     }
     if(isValid == true){
  
@@ -184,7 +189,7 @@ function ageValidate(inputElement) {
 
         var isDuplicate = EmployeeIDs.some((emp, index) => index !== selectedRow && emp.Emp_id === editedEmpId);
         if (isDuplicate) {
-            EmpIdError.textContent = 'Employee ID already exists.';
+            EmpIdError.innerHTML = 'Employee ID already exists.';
             return;
         };
 
