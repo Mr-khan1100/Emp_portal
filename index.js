@@ -110,7 +110,7 @@ function validateForm(){
 function restrictToAlphabets(inputElement) {
     inputElement.addEventListener('input', function(event) {
         const inputValue = event.target.value;
-        const sanitizedValue = inputValue.replace(/[^A-Za-z]/g, '');
+        const sanitizedValue = inputValue.replace(/[^A-Za-z ]/g, '');
         event.target.value = sanitizedValue;
     });
 };
@@ -184,7 +184,7 @@ function ageValidate(inputElement) {
 
         var isDuplicate = EmployeeIDs.some((emp, index) => index !== selectedRow && emp.Emp_id === editedEmpId);
         if (isDuplicate) {
-            ('Employee ID already exists.');
+            EmpIdError.textContent = 'Employee ID already exists.';
             return;
         };
 
