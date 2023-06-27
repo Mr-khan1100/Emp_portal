@@ -10,14 +10,31 @@ h1{
     color: white;
 }
 
+#addBtn{
+    padding: 15px 152px;
+    
+}
 
 button{
-    border-style:inset;
+    border-style:none;
+    outline: none;
     border: 1px solid #ffff;
     color: rgb(246, 246, 250);
     background-color: blue;
-    padding: 15px 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding: 10px 25px ;
+    font-size: 16px;
     border-radius: 5px;
+}
+
+.delete_btn{
+    background-color: rgb(247, 14, 14);
+    margin-left: 25px;
+}
+
+.delete_btn:hover{
+    background-color: rgb(179, 8, 8);
 }
 
 button:hover{
@@ -30,27 +47,38 @@ button:hover{
 }
 
 label{
-    font-size: 18px;
+    /* font-size: 50px; */
     color: #ffff;
     font-weight: 600;
     padding-right: 20px;
+}
+
+.mainFormLabel{
+    font-size: 20px;
 }
 
 input{
     padding: 10px 0px;
     
     display: inline-block;
-    border: 2px solid #050505;
+    /* border: 2px solid #050505; */
     border-radius: 5px;
     text-indent: 10px;
-    font-size: 15px;
+    font-size: 16px;
+    border-style: none;
+    outline: none;
+    text-align: center;
     
 }
 select{
     text-indent: 0px;
-    border: 2px solid #050505;
+    /* border: 2px solid #050505; */
+    border-style: none;
     font-size: 16px;
+    padding: 9px 59px;
     border-radius: 5px;
+    outline: none;
+    text-align: left;
     
 }
 table{
@@ -73,6 +101,7 @@ th{
     text-align: left;
 }
 
+
 tr:nth-child(even) {
     background-color: #3b96d3;
     
@@ -80,13 +109,13 @@ tr:nth-child(even) {
 }
 td{
     color: rgb(247, 244, 244);
-    padding:  0 0 0 28px;
+    padding:  20px 0 15px 28px;
     display: table-cell;
     vertical-align: 100% ;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    
     font-size: 18px;
-    border: 1px solid #ddd
+    border: 1px solid #ddd;
+   
 }
 
 
@@ -113,6 +142,18 @@ td{
     margin-bottom: 10px;
 }
 
+#editEmpName {
+    margin-left: 47px;
+}
+
+#editEmpAge{
+    margin-left: 59px;
+}
+
+#editEmpGender{
+    margin-left: 36px;
+}
+
 .middle_line{
     margin: 0;
     position: fixed;
@@ -122,23 +163,23 @@ td{
     border: white solid 1px;
 }
 
-#editPopup.delete_btn{
+/* #editPopup.delete_btn{
     margin-bottom: 10px;
 
-}
+} */
 
 tr:hover {
     background-color: #0eb3e6;
 }
 
 #EmpName{
-    margin-left: 52px;
+    margin-left: 61px;
 }
 
 #EmpAge{
-    margin-left: 65px;
+    margin-left: 75px;
 }
 
 #Emp_gender{
-    margin-left: 38px;
+    margin-left: 42px;
 }

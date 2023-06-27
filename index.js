@@ -191,6 +191,8 @@ function ageValidate(inputElement) {
         if (isDuplicate) {
             EmpIdError.innerHTML = 'Employee ID already exists.';
             return;
+        }else{
+            EmpIdError.innerHTML = '';
         };
 
       
