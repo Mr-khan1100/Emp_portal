@@ -10,22 +10,22 @@
     
     <form  id="form" autocomplete="off" onsubmit="validateForm()">
         <h1 id="header">Employee details</h1>    
-        <div>
-            <label for="Emp_id">Employee_id</label>
+        <div class="formClass">
+            <label for="Emp_id">Employee_id :</label>
             <input type="number" id="Emp_id">
             <span  id="idError" class="error"></span>
         </div>
-        <div>
-            <label for="EmpName">Name</label>
+        <div class="formClass">
+            <label for="EmpName">Name :</label>
             <input type="text" id="EmpName">
             <span id="nameError" class="error"></span>
         </div>
-        <div>
-            <label for="EmpAge">Age</label>
+        <div class="formClass">
+            <label for="EmpAge">Age :</label>
             <input type="number"  id="EmpAge"><span id="ageError" class='error'></span>
         </div>
-        <div>
-            <label for="Emp_gender">Gender</label>
+        <div class="formClass">
+            <label for="Emp_gender">Gender :</label>
             <select name="gender" id="Emp_gender">
                 <option value=""disabled selected hidden>Select </option>
                 <option value="male">Male</option>
@@ -35,17 +35,18 @@
             <span id="selectError" class="error"></span>
         </div>
         <button id="addBtn" class="form_action--button" >Add</button>
-    </form id= ' EditForm'>
+    </form >
+    <div class="middle_line"></div>
     <div id="editPopup" class="popup">
         <h2>Edit Employee</h2>
         <label for="" class="Edit_Label">Employee ID :</label>
-        <input type="number" id="editEmpId" placeholder="Employee ID"><span id="EmpIdError"></span><br>
+        <input type="number" class="Edit_input" id="editEmpId" placeholder="Employee ID"><span id="EmpIdError"></span><br>
         <label for="" class="Edit_Label">Name :</label>
-        <input type="text" id="editEmpName" placeholder="Name" ><br>
+        <input type="text" class="Edit_input" id="editEmpName" placeholder="Name" ><br>
         <label for="" class="Edit_Label">Age :</label>
-        <input type="text" id="editEmpAge"  placeholder="Age"><span id="EmpAgeError"></span><br>
+        <input type="text" id="editEmpAge" class="Edit_input" placeholder="Age"><span id="EmpAgeError"></span><br>
         <label for="" class="Edit_Label">Gender :</label>
-        <select name="editEmpGender" id="editEmpGender" >
+        <select name="editEmpGender" class="Edit_input" id="editEmpGender" >
             <option value=""disabled selected hidden>Select </option>
             <option value="male">Male</option>
             <option value="female">Female</option>

@@ -7,14 +7,9 @@ body{
     
 }
 h1{
-    position: relative;
-    
     color: white;
 }
 
-form{
-    position: relative;
-}
 
 button{
     border-style:inset;
@@ -24,20 +19,16 @@ button{
     padding: 15px 15px;
     border-radius: 5px;
 }
-.delete_btn{
-    background-color: blue(0, 4, 255);
-}
 
-.delete_btn:hover{
-    background-color: rgb(87, 87, 231);
-}
 button:hover{
     background-color: rgb(87, 87, 231);
     cursor: pointer;
 }
-div{
+
+.formClass{
     padding-bottom: 20px;
 }
+
 label{
     font-size: 18px;
     color: #ffff;
@@ -65,30 +56,89 @@ select{
 table{
     margin-right: 20px;
     margin-top: 1%;
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    height: 100%;
     
 }
 th{
     padding: 20px 30px;
+    font-weight: 600;
+    font-size: 20px;
+    background-color: blue;
+    color: white;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #3b96d3;
+    
+
 }
 td{
     color: rgb(247, 244, 244);
     padding:  0 0 0 28px;
     display: table-cell;
-    vertical-align: middle ;
+    vertical-align: 100% ;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 18px;
+    border: 1px solid #ddd
 }
+
 
 .popup{
     display: none;
     position: fixed;
+    margin-top: 50px;
+    color: white;
     top: 20%;
     left: 50%;
     transform: translate(-50%,-50%);
     padding: 20px;
-    background-color: #ffff;
     z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
 }
 
 .Edit_Label{
-    color: #050505;
+    color: #f8f2f2;
+    margin-bottom: 10px;
 }
 
+.Edit_input{
+    margin-bottom: 10px;
+}
+
+.middle_line{
+    margin: 0;
+    position: fixed;
+    margin-right: 20%;
+    height: 100%;
+    width: 0px;
+    border: white solid 1px;
+}
+
+#editPopup.delete_btn{
+    margin-bottom: 10px;
+
+}
+
+tr:hover {
+    background-color: #0eb3e6;
+}
+
+#EmpName{
+    margin-left: 52px;
+}
+
+#EmpAge{
+    margin-left: 65px;
+}
+
+#Emp_gender{
+    margin-left: 38px;
+}

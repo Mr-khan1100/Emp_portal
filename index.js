@@ -16,7 +16,6 @@ function VerifyId(formData){
     for(i=0;i<=EmployeeIDs.length-1;i++){
     if(ID==EmployeeIDs[i].Emp_id){
         isValid=false;
-        console.log('ds')
     }
     }
     return isValid
@@ -84,6 +83,8 @@ function validateForm(){
     }else if(EmployeeIDs.some((emp)=>emp.Emp_id === formData.Emp_id)){
         idError.textContent = 'Id already exist'
         isValid =false;
+    }else{
+        idError.textContent = ""
     }
     
     if(formData.EmpName.trim() === ""){
@@ -124,7 +125,7 @@ restrictToAlphabets(editEmpName);
 
 // only eligable Age group
 function ageValidate(inputElement) {
-    inputElement.addEventListener('change', function(event) {
+    inputElement.addEventListener('input', function(event) {
     const age = parseInt(event.target.value);
     
     if (isNaN(age) || age < 18 ) {
@@ -143,6 +144,8 @@ function ageValidate(inputElement) {
     const EmpAge = document.getElementById('EmpAge');
     ageValidate(EmpAge);
     
+    const EditEmpAge = document.getElementById('editEmpAge');
+    ageValidate(EditEmpAge)
     
 
     function onEdit(rowIndex) {
@@ -158,9 +161,6 @@ function ageValidate(inputElement) {
         editEmpAge.value = EmployeeIDs[rowIndex].EmpAge;
         editEmpGender.value = EmployeeIDs[rowIndex].Emp_gender;
       
-        // Attach the age validation event listener to the editEmpAge input
-        ageValidate(editEmpAge);
-      
         // Display the edit popup
         document.getElementById('editPopup').style.display = 'block';
       }
@@ -173,19 +173,20 @@ function ageValidate(inputElement) {
         var editedEmpAge = document.getElementById('editEmpAge').value;
         var editedEmpGender = document.getElementById('editEmpGender').value;
 
+
     
         // Update the EmployeeIDs array with the edited values
         EmployeeIDs[selectedRow].Emp_id = editedEmpId;
         EmployeeIDs[selectedRow].EmpName = editedEmpName;
         EmployeeIDs[selectedRow].EmpAge = editedEmpAge;
         EmployeeIDs[selectedRow].Emp_gender = editedEmpGender;
-        // EmpIdError.textContent = '';
+    
 
         var isDuplicate = EmployeeIDs.some((emp, index) => index !== selectedRow && emp.Emp_id === editedEmpId);
         if (isDuplicate) {
-            EmpIdError.textContent = 'Employee ID already exists.';
+            ('Employee ID already exists.');
             return;
-          }
+        };
 
       
         // Update the table row with the edited values
@@ -207,10 +208,6 @@ function onCancel(){
 }
 
 function onDelete(rowIndex) {
-    var empId = EmployeeIDs[rowIndex].Emp_id;
-    // EmployeeIDs.splice(rowIndex, 1); // Remove the element from the array
-  
-    // Delete the corresponding table row
     var table = document.getElementById('emp_list');
     table.deleteRow(rowIndex + 1); // +1 to account for the table header row
   
@@ -218,19 +215,4 @@ function onDelete(rowIndex) {
   }
 
 
-// var i;
-
-// var delBtn = document.querySelectorAll('#delete_employee');
-
-// for (i = 0; i < delBtn.length + 1; i++) {
-
-// delBtn[i].onclick = function () {
-
-//     var tr = this.parentElement.parentElement;
-
-//     tr.remove();
-
-// }
-
-// }
 
